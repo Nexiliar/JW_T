@@ -63,17 +63,6 @@
 					}
 				},
 				{
-					"mode": "button",
-					"path": "/user/hand/right/input/application_menu",
-					"inputs":
-					{
-						"click":
-						{
-							"output": "/actions/main/in/MenuToggleRight"
-						}
-					}
-				},
-				{
 					"mode": "trackpad",
 					"path": "/user/hand/left/input/trackpad",
 					"inputs":

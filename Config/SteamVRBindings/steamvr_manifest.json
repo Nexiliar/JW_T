@@ -168,11 +168,11 @@
 			"type": "boolean"
 		},
 		{
-			"name": "/actions/main/in/MenuToggleRight",
+			"name": "/actions/main/in/MenuPopUp",
 			"type": "boolean"
 		},
 		{
-			"name": "/actions/main/in/TTT1",
+			"name": "/actions/main/in/SpawnTestEvent",
 			"type": "boolean"
 		},
 		{
@@ -225,6 +225,10 @@
 		},
 		{
 			"name": "/actions/main/in/MovementAxisRight_Y axis",
+			"type": "vector1"
+		},
+		{
+			"name": "/actions/main/in/NewAxisMapping_0 axis",
 			"type": "vector1"
 		}
 	],
@@ -473,8 +477,8 @@
 			"/actions/main/in/TriggerLeft": "TriggerLeft",
 			"/actions/main/in/TriggerRight": "TriggerRight",
 			"/actions/main/in/MenuToggleLeft": "MenuToggleLeft",
-			"/actions/main/in/MenuToggleRight": "MenuToggleRight",
-			"/actions/main/in/TTT1": "TTT1",
+			"/actions/main/in/MenuPopUp": "MenuPopUp",
+			"/actions/main/in/SpawnTestEvent": "SpawnTestEvent",
 			"/actions/main/in/MovementAxisLeft_X,MovementAxisLeft_Y X Y_axis2d": "MovementAxisLeft",
 			"/actions/main/in/GrabAxisLeft axis": "GrabAxisLeft",
 			"/actions/main/in/TriggerAxisLeft axis": "TriggerAxisLeft",
@@ -488,6 +492,7 @@
 			"/actions/main/in/SpectatorMoveUp axis": "SpectatorMoveUp",
 			"/actions/main/in/MovementAxisRight_X,MovementAxisRight_Y X Y_axis2d": "MovementAxisRight",
 			"/actions/main/in/MovementAxisRight_Y axis": "MovementAxisRight_Y",
+			"/actions/main/in/NewAxisMapping_0 axis": "NewAxisMapping_0",
 			"/actions/main": "Main Game Actions"
 		}
 	]

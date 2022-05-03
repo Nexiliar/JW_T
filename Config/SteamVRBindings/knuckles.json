@@ -53,23 +53,23 @@
 				},
 				{
 					"mode": "button",
-					"path": "/user/hand/right/input/a",
-					"inputs":
-					{
-						"click":
-						{
-							"output": "/actions/main/in/MenuToggleRight"
-						}
-					}
-				},
-				{
-					"mode": "button",
 					"path": "/user/hand/right/input/b",
 					"inputs":
 					{
 						"click":
 						{
-							"output": "/actions/main/in/TTT1"
+							"output": "/actions/main/in/MenuPopUp"
+						}
+					}
+				},
+				{
+					"mode": "button",
+					"path": "/user/hand/right/input/a",
+					"inputs":
+					{
+						"click":
+						{
+							"output": "/actions/main/in/SpawnTestEvent"
 						}
 					}
 				},

@@ -44,3 +44,9 @@ int32 UInventoryComponent::GetAvailableAmmo()
 	return AvailableAmmo;
 }
 
+void UInventoryComponent::SetAvailableAmmo(int32 Ammo)
+{
+	AvailableAmmo = Ammo;
+	OnAmmoChange.Broadcast(AvailableAmmo);
+}
+

@@ -30,4 +30,7 @@ public:
 		void ChangeAmmo(int32 AmountToChange);
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Action")
 		int32 GetAvailableAmmo();
+
+	UFUNCTION(BlueprintCallable, Category = "Action")
+		void SetAvailableAmmo(int32 Ammo);
 };
