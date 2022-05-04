@@ -38,8 +38,7 @@ void UHealthComponent::ChangeHealth(float Amount)
 {
 	if (!isDead)
 	{
-		CurrentHealth += Amount;
-		UE_LOG(LogTemp, Warning, TEXT("CHANGE:,%f"), CurrentHealth);
+		CurrentHealth += Amount;		
 		if (CurrentHealth >= MaxHealth)
 		{			
 			CurrentHealth = MaxHealth;

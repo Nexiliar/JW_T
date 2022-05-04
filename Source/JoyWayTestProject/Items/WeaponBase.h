@@ -9,6 +9,7 @@
 #include "JoyWayTestProject/Items/Projectile.h"
 #include "WeaponBase.generated.h"
 
+//Busrt settings structure
 USTRUCT(BlueprintType)
 struct FBurstMode
 {
@@ -19,7 +20,7 @@ struct FBurstMode
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Burst")
 		float BurstRate = 0.1f;
 };
-
+//Enum of weapon types. Depend on fire type.
 UENUM(BlueprintType)
 enum class EWeaponType : uint8
 {
@@ -27,7 +28,7 @@ enum class EWeaponType : uint8
 	Burst,
 	SingleShot
 };
-
+//Structure for weapon CFG 
 USTRUCT(BlueprintType)
 struct FWeaponInfo 
 {
@@ -48,19 +49,8 @@ struct FWeaponInfo
 		int32 CurrentRound;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound ")
 		USoundBase* SoundFireWeapon = nullptr;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FX ")
-		UParticleSystem* EffectFireWeapon = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Trace ")
 		float WeaponDamage = 20.0f;
-	//one decal on all?
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HitEffect ")
-		UDecalComponent* DecalOnHit = nullptr;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh ")
-		UStaticMesh* Shell;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh ")
-		UStaticMesh* Magazin;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory ")
-		UTexture2D* WeaponIcon = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProjectileSetting")
 		TSubclassOf<class AProjectile> Projectile = nullptr;
 };
@@ -81,6 +71,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = Components)
 		class UArrowComponent* MagazineDropLocation = nullptr;
 
+	//Timers
 	FTimerHandle TimerHandle_ShootTimer;
 	FTimerHandle TimerHandle_BurstTimer;
 	FTimerHandle TimerHandle_SingleShotTimer;
@@ -113,5 +104,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Action")
 		int32 ReloadEvent(int32 AvailableAmmo);
+	
+	//Inner variable to count bullets in burst
 	int32 BurstProjectileCount = 0;
 };

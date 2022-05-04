@@ -43,7 +43,7 @@ void AProjectile::CollisionSphereBeginOverlap(UPrimitiveComponent* OverlappedCom
 		OtherComp->AddImpulse(ProjectileMovement->Velocity*1.0f);
 	
 	}
-	//Check whether actor exist and aplly damage to it
+	//Check whether actor exist and apply damage to it
 	if (OtherActor)
 	{
 		UGameplayStatics::ApplyDamage(OtherActor,BulletDamage, GetInstigatorController(),this, NULL);

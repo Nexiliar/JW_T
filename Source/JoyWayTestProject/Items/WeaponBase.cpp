@@ -35,7 +35,7 @@ void AWeaponBase::Tick(float DeltaTime)
 
 void AWeaponBase::StartFire()
 {
-	//EWeaponType switchedType = WeaponInfo.TypeOfFire;
+	//Swithc fire type based on weaponinfo
 	switch (WeaponInfo.TypeOfFire)
 	{
 	case EWeaponType::Auto:
@@ -47,7 +47,10 @@ void AWeaponBase::StartFire()
 		break;
 	case EWeaponType::SingleShot:
 		if (CanFire)		
-			Fire();				
+			Fire();
+		//Restrict fire wihtin Firerate
+		CanFire = false;
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle_SingleShotTimer, this, &AWeaponBase::SetCanFire, WeaponInfo.RateOfFire, false);
 		break;
 	default:
 		break;
@@ -82,17 +85,14 @@ void AWeaponBase::BurstFire()
 
 void AWeaponBase::Fire()
 {
-	if (WeaponInfo.TypeOfFire == EWeaponType::SingleShot)
-	{
-		CanFire = false;		
-		GetWorld()->GetTimerManager().SetTimer(TimerHandle_SingleShotTimer,this, &AWeaponBase::SetCanFire, WeaponInfo.RateOfFire, false);
-	}
-		FActorSpawnParameters SpawnParams;
-		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-		SpawnParams.Owner = this;
-		SpawnParams.Instigator = GetInstigator();
-		FVector SpawnLocation = ShootLocation->GetComponentLocation();
-		FRotator SpawnRotation = ShootLocation->GetComponentRotation();
+	//Spawn parametrs init
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	SpawnParams.Owner = this;
+	SpawnParams.Instigator = GetInstigator();
+	FVector SpawnLocation = ShootLocation->GetComponentLocation();
+	FRotator SpawnRotation = ShootLocation->GetComponentRotation();
+
 		if (WeaponInfo.CurrentRound > 0)
 		{
 			WeaponInfo.CurrentRound -= 1;

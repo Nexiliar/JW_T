@@ -53,17 +53,6 @@
 				},
 				{
 					"mode": "button",
-					"path": "/user/hand/left/input/application_menu",
-					"inputs":
-					{
-						"click":
-						{
-							"output": "/actions/main/in/MenuToggleLeft"
-						}
-					}
-				},
-				{
-					"mode": "button",
 					"path": "/user/hand/right/input/b",
 					"inputs":
 					{
